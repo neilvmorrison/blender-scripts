@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Blender: Run Script (Background)",
+      "type": "shell",
+      "command": "/Applications/Blender.app/Contents/MacOS/Blender",
+      "args": ["--background", "--python", "${file}"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Blender: Run Script (GUI)",
+      "type": "shell",
+      "command": "/Applications/Blender.app/Contents/MacOS/Blender",
+      "args": ["--python", "${file}"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
