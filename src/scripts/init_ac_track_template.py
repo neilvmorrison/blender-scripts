@@ -12,6 +12,32 @@ GITATTRIBUTES = """\
 *.blend filter=lfs diff=lfs merge=lfs -text
 """
 
+GITIGNORE = """\
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.VolumeIcon.icns
+
+# Blender backups
+*.blend1
+*.blend2
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editors
+.vscode/
+.idea/
+"""
+
 AUDIO_SOURCES_INI = """\
 [REVERB_0]
 ENABLED=0
@@ -229,6 +255,7 @@ def write_template_files(track_dir: Path, track_name: str):
         - track_name: str - used to populate ui_track.json name field
     """
     (track_dir / '.gitattributes').write_text(GITATTRIBUTES)
+    (track_dir / '.gitignore').write_text(GITIGNORE)
 
     ini_files = {
         'data/audio_sources.ini': AUDIO_SOURCES_INI,
