@@ -2,12 +2,9 @@ import sys, os; sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..")
 import subprocess
 import bpy
 from pathlib import Path
+from config import PROJECT_SAVE_DIRECTORY
 
-# NOTE: Run this in the background via cmd + B
-
-CONFIG = {
-  "save_dir": "/Users/neilmorrison/projects/blender_projects/projects",
-}
+NEW_PROJECT_NAME = 'road_test_2'
 
 def create_and_save(directory: str, file_name: str) -> str:
   """
@@ -45,8 +42,8 @@ def create_nurbs_path(length: float) -> bpy.types.Object | None:
   else:
     print(f"Failed to create object")
 
-def main():
-  file_path = create_and_save(CONFIG["save_dir"], 'test1')
+def main(project_name: str):
+  file_path = create_and_save(PROJECT_SAVE_DIRECTORY, project_name)
 
   curve_obj = create_nurbs_path(400)
   print(f"file_path: {file_path}")
@@ -56,5 +53,5 @@ def main():
 
 
 if __name__ == "__main__":
-  main()
+  main(NEW_PROJECT_NAME)
 
